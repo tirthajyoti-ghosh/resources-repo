@@ -1,2 +1,11 @@
-<h1>Resources#show</h1>
-<p>Find me in app/views/resources/show.html.erb</p>
+<h1>Resource</h1>
+
+<h3>Link:</h3>
+
+<%= link_to @resource.link, @resource.link, target: "_blank" %>
+
+<p><%= @resource.notes %></p>
+
+<%= link_to 'Edit', edit_resource_path %> | 
+<%= link_to 'Delete', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
+
