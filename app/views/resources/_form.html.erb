@@ -1,0 +1,7 @@
+<%= form_with(model: @resource) do |f| %>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <%= f.submit %>
+<% end %>
