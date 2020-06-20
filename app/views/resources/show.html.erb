@@ -6,6 +6,9 @@
 
 <p><%= @resource.notes %></p>
 
+
+<%= link_to 'View all resources', root_path %> | 
+
 <%= link_to 'Edit', edit_resource_path %> | 
 <%= link_to 'Delete', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
 
