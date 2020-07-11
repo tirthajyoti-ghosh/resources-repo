@@ -1,12 +1,12 @@
 <%= form_with(model: @resource) do |f| %>
     
     <div class="field">
-        <%= f.label :link %><br>
+        <%= f.label :link, "Link:*" %><br>
         <%= f.text_field :link, required: true %>
     </div>
     
     <div class="field">
-        <%= f.label :notes %><br>
+        <%= f.label :notes, "Notes:*" %><br>
         <%= f.text_area :notes, required: true %>
     </div>
     

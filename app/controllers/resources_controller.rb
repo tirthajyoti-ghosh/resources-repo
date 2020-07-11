@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resources = Resource.all
+    @resources = Resource.includes(:categories).all
   end
 
   def show
