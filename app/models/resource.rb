@@ -1,4 +1,5 @@
 class Resource < ApplicationRecord
+	validates :title, presence: true
 	validates :link, presence: true
 	validates :notes, presence: true, length: {minimum: 10, maximum: 140}
 
@@ -14,4 +15,8 @@ class Resource < ApplicationRecord
     new_or_found_categories = category_names.collect { |name| Category.find_or_create_by(name: name) }
 		self.categories = new_or_found_categories
 	end
+
+	def category_list
+		categories.join(' ')
+	end	
 end

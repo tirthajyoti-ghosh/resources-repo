@@ -1,7 +1,6 @@
 <% resources.each do |resource| %>
   <hr>
   <div>
-
     <h3><%= resource.title %></h3>
     <% resource.categories.each do |category| %>
       <%= link_to category.name, category_path(category.name) %>      
@@ -12,6 +11,6 @@
 
     <p><%= resource.notes.truncate(30) %></p>
   </div>
-      <%= link_to 'Show',  resource %>
+  <%= link_to 'Show',  resource %>  
   <hr>
 <% end %>
