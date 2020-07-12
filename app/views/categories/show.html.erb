@@ -1,15 +1,4 @@
 <h1><%= @category.name %></h1>
-
 <div>
-  <% @resources.each do |resource| %>
-    <hr>
-    <div>
-      <%= link_to resource.link, resource.link, target: "_blank" %>
-
-      <p><%= resource.notes.truncate(30) %></p>
-    </div>
-        <%= link_to 'Show',  resource %>
-    <hr>
-  <% end %>
-
+  <%= render partial: 'shared/resources', locals: {resources: @resources} %>
 </div>
