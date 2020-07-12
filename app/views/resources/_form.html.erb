@@ -1,27 +1,37 @@
-<%= form_with(model: @resource) do |f| %>
-    
-    <div class="field">
-        <%= f.label :title, "Title:*" %><br>
-        <%= f.text_field :title, required: true %>
+<%= form_with(model: @resource, local: true) do |f| %>
+
+	<% if @resource.errors.any? %>
+    <div class="alert">
+      <h4><%= pluralize(@resource.errors.count, "error") %> prohibited this article from being saved:</h4>
+
+      <% @resource.errors.full_messages.each do |message| %>
+        <div class="alert-text"><%= message %></div>
+      <% end %>
     </div>
+  <% end %>
+
+	<div class="field">
+		<%= f.label :title, "Title:*" %><br>
+		<%= f.text_field :title, required: true %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :link, "Link:*" %><br>
+		<%= f.text_field :link, required: true %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :notes, "Notes:*" %><br>
+		<%= f.text_area :notes, required: true %>
+	</div>
     
-    <div class="field">
-        <%= f.label :link, "Link:*" %><br>
-        <%= f.text_field :link, required: true %>
-    </div>
+	<div class="field">
+		<%= f.label :category_list, "Categories:*" %>
+		<br>
+		<%= f.text_field :category_list, placeholder: 'Input categories separated by commas', class: "input", required: true %>
+	</div>
     
-    <div class="field">
-        <%= f.label :notes, "Notes:*" %><br>
-        <%= f.text_area :notes, required: true %>
-    </div>
-    
-    <div class="field">
-        <%= f.label :category_list, "Categories:*" %>
-        <br>
-        <%= f.text_field :category_list, placeholder: 'Input categories separated by commas', class: "input", required: true %>
-    </div>
-    
-    <div class="field">
-        <%= f.submit %>
-    </div>
+	<div class="field">
+			<%= f.submit %>
+	</div>
 <% end %>
