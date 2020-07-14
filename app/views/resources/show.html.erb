@@ -12,6 +12,12 @@
 
 <%= link_to 'View all resources', root_path %> |
 <% if current_user &.== @resource.user %>
-<%= link_to 'Edit', edit_resource_path %> |
-<%= link_to 'Delete', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_resource_path %> |
+  <%= link_to 'Delete', @resource, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+<h4>Comments</h4>
+
+<%= render 'comment_form' %>
+
+<%= render partial: 'comments_list', locals: {comments: @comments} %>

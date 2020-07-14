@@ -1,0 +1,8 @@
+<% comments.each do |comment| %>
+  <hr>
+  <div>
+    <strong><%= comment.user.name %></strong>
+    <p><%= comment.body %></p>
+  </div>
+  <hr>
+<% end %>

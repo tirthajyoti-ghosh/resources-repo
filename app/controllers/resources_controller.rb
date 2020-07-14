@@ -7,6 +7,8 @@ class ResourcesController < ApplicationController
   end
 
   def show
+    @new_comment = @resource.comments.new
+    @comments = @resource.comments.includes(:user)
   end
   
   def new
