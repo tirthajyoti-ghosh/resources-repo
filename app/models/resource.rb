@@ -5,10 +5,10 @@ class Resource < ApplicationRecord
 
 
 	belongs_to :user
-	has_many :comments
-	has_many :categorizations
+	has_many :comments, dependent: :destroy
+	has_many :categorizations, dependent: :destroy
 	has_many :categories, through: :categorizations
-	has_many :votes
+	has_many :votes, dependent: :destroy
 
 	def category_list=(category_string)
     category_names = category_string.split(',').collect { |s| s.strip }.uniq
