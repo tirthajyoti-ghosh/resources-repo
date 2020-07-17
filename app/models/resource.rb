@@ -1,14 +1,13 @@
 class Resource < ApplicationRecord
-	validates :title, presence: true
-	validates :link, presence: true
-	validates :notes, presence: true, length: {minimum: 10, maximum: 140}
-
-
 	belongs_to :user
 	has_many :comments, dependent: :destroy
 	has_many :categorizations, dependent: :destroy
 	has_many :categories, through: :categorizations
 	has_many :votes, dependent: :destroy
+
+	validates :title, presence: true
+	validates :link, presence: true
+	validates :notes, presence: true, length: {minimum: 10, maximum: 140}
 
 	def category_list=(category_string)
     category_names = category_string.split(',').collect { |s| s.strip }.uniq
@@ -19,4 +18,8 @@ class Resource < ApplicationRecord
 	def category_list
 		categories.join(' ')
 	end	
+
+  def self.already_voted?(article, user_id)
+    Vote.exists?(user_id: user_id, article_id: article.id)
+  end
 end

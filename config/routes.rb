@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :resources do
     resources :comments, only: [:create]
+    resources :votes, only: [:create]
   end
   root to: 'resources#index'
 end
