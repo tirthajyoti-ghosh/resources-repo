@@ -10,6 +10,7 @@
     <%= link_to resource.link, resource.link, target: "_blank" %>
 
     <p><%= resource.notes.truncate(30) %></p>
+    <%= display_vote_for(resource, current_user) %>
   </div>
   <%= link_to 'Show',  resource %>  
   <hr>
