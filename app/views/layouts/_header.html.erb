@@ -2,7 +2,8 @@
 <%= link_to 'Categories', categories_path %> | 
 <%= link_to 'New Resource', new_resource_path %> | 
 
-<% if current_user %>
+<% if user_signed_in? %> 
+    <%= link_to 'Saved Resources', savings_path %> | 
     <%= current_user.name %>
     <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
 <% else %>
