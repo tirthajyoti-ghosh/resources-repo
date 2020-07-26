@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :resources
   has_many :comments
   has_many :votes
+  has_many :savings
   has_many :saved_resources, through: :savings, source: :resource
 end
