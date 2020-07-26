@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/savings', to: 'savings#index'
   get 'categories', to: "categories#index"
   get 'categories/:name', to: "categories#show", as: :category
   devise_for :users
