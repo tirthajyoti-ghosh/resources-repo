@@ -17,10 +17,6 @@ class Resource < ApplicationRecord
 		self.categories = new_or_found_categories
 	end
 
-	def category_list
-		categories.join(' ')
-	end	
-
   def self.already_voted?(resource, user_id)
     Vote.exists?(user_id: user_id, resource_id: resource.id)
   end
