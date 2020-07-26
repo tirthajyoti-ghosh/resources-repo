@@ -4,6 +4,7 @@ class Resource < ApplicationRecord
 	has_many :categorizations, dependent: :destroy
 	has_many :categories, through: :categorizations
 	has_many :votes, dependent: :destroy
+	has_many :savers, through: :savings, source: :user
 
 	validates :title, presence: true
 	validates :link, presence: true

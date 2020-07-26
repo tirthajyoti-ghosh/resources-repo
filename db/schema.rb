@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_093012) do
+ActiveRecord::Schema.define(version: 2020_07_26_105400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(version: 2020_07_26_093012) do
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
-  create_table "saved_resources", force: :cascade do |t|
+  create_table "savings", force: :cascade do |t|
     t.bigint "resource_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["resource_id"], name: "index_saved_resources_on_resource_id"
-    t.index ["user_id", "resource_id"], name: "index_saved_resources_on_user_id_and_resource_id", unique: true
-    t.index ["user_id"], name: "index_saved_resources_on_user_id"
+    t.index ["resource_id"], name: "index_savings_on_resource_id"
+    t.index ["user_id", "resource_id"], name: "index_savings_on_user_id_and_resource_id", unique: true
+    t.index ["user_id"], name: "index_savings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_093012) do
   add_foreign_key "categorizations", "resources"
   add_foreign_key "comments", "resources"
   add_foreign_key "comments", "users"
-  add_foreign_key "saved_resources", "resources"
-  add_foreign_key "saved_resources", "users"
+  add_foreign_key "savings", "resources"
+  add_foreign_key "savings", "users"
   add_foreign_key "votes", "resources"
   add_foreign_key "votes", "users"
 end
